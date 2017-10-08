@@ -67,24 +67,22 @@ $(document).ready(function(){
     isPresent(presence);
 
     $('.feature-list').append(`
-      <li class="feature">
-        <div class="bubble" id="${id}">
-          <span>${title}: ${exists}</span>
-          <ul class="subfeature-render">
-          </ul>
-        </div>
+      <li class="feature" id="${id}">
+        <span>${title}: ${exists}</span>
+        <ul class="subfeature-render">
+        </ul>
       </li>
     `);
 
     feature.subfeatures.forEach(function(sub){
-      let subtitle = sub.title
+      let subTitle = sub.title
       let subId = sub.id;
-      let subpresence = sub.presence;
-      isPresent(subpresence);
+      let subPresence = sub.presence;
+      isPresent(subPresence);
 
       $(`#${id} .subfeature-render`).append(`
-        <li id="${subId}">
-          <span>${subtitle}: ${exists}</span>
+        <li class="subfeature" id="${subId}">
+          <span>${subTitle}: ${exists}</span>
           <ul class="sub-subfeature-render">
           </ul>
         </li>
@@ -97,7 +95,7 @@ $(document).ready(function(){
         isPresent(subSubPresence)
 
         $(`#${subId} .sub-subfeature-render`).append(`
-          <li id="${subSubId}">
+          <li class="sub-subfeature" id="${subSubId}">
             <span>${subSubTitle}: ${exists}</span>
             <ul class="sub-subfeature-render">
             </ul>
@@ -113,8 +111,8 @@ let exists = null;
 
 function isPresent(el){
   if (el === true) {
-    exists = "Yes"
+    exists = "Yes";
   } else {
-    exists = "No"
+    exists = "No";
   }
 };
