@@ -110,6 +110,7 @@ $(document).ready(function(){
 
 });
 
+// variable and function for adding Yes or No to each feature depending on presence
 let exists = null;
 
 function isPresent(el){
