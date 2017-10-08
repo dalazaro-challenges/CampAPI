@@ -106,7 +106,7 @@ $(document).ready(function(){
   })
 
   // denote all absent features with gray font and strikethrough
-  $( "span:contains('No')" ).css( "text-decoration", "line-through" ).css( "color", "#D3D3D3" );
+  $( "span:contains('No')" ).addClass( "absent-feature" );
 });
 
 let exists = null;
