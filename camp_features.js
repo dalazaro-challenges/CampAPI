@@ -67,8 +67,8 @@ $(document).ready(function(){
     isPresent(presence);
 
     $('.feature-list').append(`
-      <li class="feature" id="${id}">
-        <span>${title}: ${exists}</span>
+      <li class="feature ${id}" id="">
+        <span id="${id}">${title}: ${exists}</span>
         <ul class="subfeature-render">
         </ul>
       </li>
@@ -80,9 +80,9 @@ $(document).ready(function(){
       let subPresence = sub.presence;
       isPresent(subPresence);
 
-      $(`#${id} .subfeature-render`).append(`
-        <li class="subfeature" id="${subId}">
-          <span>${subTitle}: ${exists}</span>
+      $(`.${id} .subfeature-render`).append(`
+        <li class="subfeature ${subId}" id="">
+          <span id="${subId}">${subTitle}: ${exists}</span>
           <ul class="sub-subfeature-render">
           </ul>
         </li>
@@ -94,9 +94,9 @@ $(document).ready(function(){
         let subSubPresence = subSub.presence;
         isPresent(subSubPresence)
 
-        $(`#${subId} .sub-subfeature-render`).append(`
-          <li class="sub-subfeature" id="${subSubId}">
-            <span>${subSubTitle}: ${exists}</span>
+        $(`.${subId} .sub-subfeature-render`).append(`
+          <li class="sub-subfeature ${subSubId}" id="">
+            <span id="${subSubId}">${subSubTitle}: ${exists}</span>
             <ul class="sub-subfeature-render">
             </ul>
           </li>
@@ -105,6 +105,8 @@ $(document).ready(function(){
     })
   })
 
+  // denote all absent features with gray font and strikethrough
+  $( "span:contains('No')" ).css( "text-decoration", "line-through" ).css( "color", "#D3D3D3" );
 });
 
 let exists = null;
