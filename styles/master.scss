@@ -12,6 +12,12 @@ $custom-gray: #D3D3D3;
   vertical-align: $va;
 }
 
+.subfeatures-all {
+  display: none;
+  text-align: left;
+  margin-top: 10px;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -25,12 +31,12 @@ ul {
   padding: 0;
 }
 
-.feature-list {
+.features-list-a {
   margin: 0;
   text-align: center;
 }
 
-.feature {
+.feature-a {
   display: inline-block;
   width: 200px;
   @include bubble-border(2px solid $custom-gray, 5px, text-top);
@@ -40,29 +46,22 @@ ul {
   padding: 20px;
 }
 
-.subfeature, .sub-subfeature {
-  display: none;
-  text-align: left;
-  margin-top: 10px;
-}
-
-.subfeature {
+.feature-b {
+  @extend .subfeatures-all;
   padding-left: 10px;
 }
 
-.sub-subfeature {
+.feature-c {
+  @extend .subfeatures-all;
   padding-left: 20px;
 }
 
-.absent-feature {
+.feature-absent {
   text-decoration: line-through;
   color: $custom-gray;
 }
 
-.fa {
-  font-size: 3rem;
-}
-
 .icon {
+  font-size: 3rem;
   margin-bottom: 20px;
 }

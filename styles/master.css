@@ -1,3 +1,8 @@
+.subfeatures-all, .feature-b, .feature-c {
+  display: none;
+  text-align: left;
+  margin-top: 10px; }
+
 body {
   font-family: 'Roboto', sans-serif; }
 
@@ -10,11 +15,11 @@ ul {
   list-style: none;
   padding: 0; }
 
-.feature-list {
+.features-list-a {
   margin: 0;
   text-align: center; }
 
-.feature {
+.feature-a {
   display: inline-block;
   width: 200px;
   border: 2px solid #D3D3D3;
@@ -25,25 +30,18 @@ ul {
   margin: 5px auto;
   padding: 20px; }
 
-.subfeature, .sub-subfeature {
-  display: none;
-  text-align: left;
-  margin-top: 10px; }
-
-.subfeature {
+.feature-b {
   padding-left: 10px; }
 
-.sub-subfeature {
+.feature-c {
   padding-left: 20px; }
 
-.absent-feature {
+.feature-absent {
   text-decoration: line-through;
   color: #D3D3D3; }
 
-.fa {
-  font-size: 3rem; }
-
 .icon {
+  font-size: 3rem;
   margin-bottom: 20px; }
 
 /*# sourceMappingURL=master.css.map */
