@@ -16,7 +16,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1, .feature-container, .icon {
+header, main {
   @include center-align(center, flex);
 }
 
@@ -25,29 +25,33 @@ ul {
   padding: 0;
 }
 
-.feature-container {
-  text-align: center;
-}
-
 .feature-list {
   margin: 0;
+  text-align: center;
 }
 
 .feature {
   display: inline-block;
   width: 200px;
-  margin: 20px auto;
-  padding: 20px;
   @include bubble-border(2px solid $custom-gray, 5px, text-top);
+  cursor: pointer;
+  text-align: left;
+  margin: 5px auto;
+  padding: 20px;
 }
 
 .subfeature, .sub-subfeature {
   display: none;
+  text-align: left;
   margin-top: 10px;
 }
 
-.feature, .subfeature, .sub-subfeature {
-  cursor: pointer;
+.subfeature {
+  padding-left: 10px;
+}
+
+.sub-subfeature {
+  padding-left: 20px;
 }
 
 .absent-feature {

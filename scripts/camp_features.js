@@ -70,7 +70,7 @@ $(document).ready(function(){
     $('.feature-list').append(`
       <li class="feature ${id}" id="">
         <span id="${id}">${title}: ${exists}</span>
-        <ul class="subfeature-render">
+        <ul class="subfeature-list">
         </ul>
       </li>
     `);
@@ -81,10 +81,10 @@ $(document).ready(function(){
       let subPresence = sub.presence;
       isPresent(subPresence);
 
-      $(`.${id} .subfeature-render`).append(`
+      $(`.${id} .subfeature-list`).append(`
         <li class="subfeature ${subId}" id="">
           <span id="${subId}">${subTitle}: ${exists}</span>
-          <ul class="sub-subfeature-render">
+          <ul class="sub-subfeature-list">
           </ul>
         </li>
       `);
@@ -95,10 +95,10 @@ $(document).ready(function(){
         let subSubPresence = subSub.presence;
         isPresent(subSubPresence)
 
-        $(`.${subId} .sub-subfeature-render`).append(`
+        $(`.${subId} .sub-subfeature-list`).append(`
           <li class="sub-subfeature ${subSubId}" id="">
             <span id="${subSubId}">${subSubTitle}: ${exists}</span>
-            <ul class="sub-subfeature-render">
+            <ul class="sub-subfeature-list">
             </ul>
           </li>
         `);
@@ -133,7 +133,7 @@ function addIcons(){
 
 // each feature is a clickable bubble that opens up nested subfeatures
 function featureClick(){
-  $(".feature-container").find(".feature").each(function(){
+  $(".feature-list").find(".feature").each(function(){
     $(this).click(function(){
       $(this).find(".subfeature, .sub-subfeature").each(function(){
         $(this).toggle("medium");
