@@ -2,13 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.feature-container {
+h1, .feature-container, .icon {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -19,11 +13,16 @@ ul {
   padding: 0;
 }
 
+.feature-container {
+  text-align: center;
+}
+
 .feature-list {
   margin: 0;
 }
 
 .feature {
+  width: 200px;
   display: inline-block;
   margin: 20px auto;
   border: 2px solid gray;
@@ -44,4 +43,12 @@ ul {
 .absent-feature {
   text-decoration: line-through;
   color: #D3D3D3;
+}
+
+.fa {
+  font-size: 3rem;
+}
+
+.icon {
+  margin-bottom: 20px;
 }
