@@ -60,69 +60,73 @@ const FEATURES = [
 
 $(document).ready(function(){
 
-  FEATURES.forEach(function(feature){
-    let title = feature.title;
-    let id = feature.id;
-    let presence = feature.presence;
-    isPresent(presence);
+  FEATURES.forEach(function(featureA){
+    const titleA = featureA.title;
+    const idA = featureA.id;
+    const presenceA = featureA.presence;
+    isPresent(presenceA);
 
-
-    $('.feature-list').append(`
-      <li class="feature ${id}" id="">
-        <span id="${id}">${title}: ${exists}</span>
-        <ul class="subfeature-list">
+    $('.features-list-a').append(`
+      <li class="feature-a ${idA}">
+        <span id="${idA}">${titleA}: ${exists}</span>
+        <ul class="features-list-b">
         </ul>
       </li>
     `);
 
-    feature.subfeatures.forEach(function(sub){
-      let subTitle = sub.title
-      let subId = sub.id;
-      let subPresence = sub.presence;
-      isPresent(subPresence);
+    featureA.subfeatures.forEach(function(featureB){
+      const titleB = featureB.title
+      const idB = featureB.id;
+      const presenceB = featureB.presence;
+      isPresent(presenceB);
 
-      $(`.${id} .subfeature-list`).append(`
-        <li class="subfeature ${subId}" id="">
-          <span id="${subId}">${subTitle}: ${exists}</span>
-          <ul class="sub-subfeature-list">
+      $(`.${idA} .features-list-b`).append(`
+        <li class="feature-b ${idB}">
+          <span id="${idB}">${titleB}: ${exists}</span>
+          <ul class="features-list-c">
           </ul>
         </li>
       `);
 
-      sub.subfeatures.forEach(function(subSub){
-        let subSubTitle = subSub.title;
-        let subSubId = subSub.id
-        let subSubPresence = subSub.presence;
-        isPresent(subSubPresence)
+      featureB.subfeatures.forEach(function(featureC){
+        const titleC = featureC.title;
+        const idC = featureC.id
+        const presenceC = featureC.presence;
+        isPresent(presenceC);
 
-        $(`.${subId} .sub-subfeature-list`).append(`
-          <li class="sub-subfeature ${subSubId}" id="">
-            <span id="${subSubId}">${subSubTitle}: ${exists}</span>
-            <ul class="sub-subfeature-list">
+        $(`.${idB} .features-list-c`).append(`
+          <li class="feature-c ${idC}">
+            <span id="${idC}">${titleC}: ${exists}</span>
+            <ul class="features-list-d">
             </ul>
           </li>
         `);
       })
     })
   })
-
-  // denote all absent features with gray font and strikethrough
-  $("span:contains('No')").addClass("absent-feature");
+  markAbsentFeatures();
   addIcons();
   featureClick();
+
 });
+
+// denote all absent features with gray font and strikethrough
+function markAbsentFeatures(){
+  $("span:contains('No')").addClass("feature-absent");
+}
 
 // variable and function for adding Yes or No to each feature depending on presence
 let exists = null;
 
-function isPresent(el){
-  if (el === true) {
+function isPresent(condition){
+  if (condition === true) {
     exists = "Yes";
   } else {
     exists = "No";
   }
 };
 
+// add Font Awesome icons to each top level <li>
 function addIcons(){
   $(".101").prepend('<div class="icon"><i class="fa fa-male" aria-hidden="true"></i><i class="fa fa-female" aria-hidden="true"></i></div>');
   $(".102").prepend('<div class="icon"><i class="fa fa-paw" aria-hidden="true"></i></div>');
@@ -130,12 +134,11 @@ function addIcons(){
   $(".104").prepend('<div class="icon"><i class="fa fa-trash" aria-hidden="true"></i></div>');
 };
 
-
 // each feature is a clickable bubble that opens up nested subfeatures
 function featureClick(){
-  $(".feature-list").find(".feature").each(function(){
+  $(".features-list-a").find(".feature-a").each(function(){
     $(this).click(function(){
-      $(this).find(".subfeature, .sub-subfeature").each(function(){
+      $(this).find(".feature-b, .feature-c").each(function(){
         $(this).toggle("medium");
       })
     })
