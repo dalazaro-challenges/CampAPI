@@ -110,11 +110,6 @@ $(document).ready(function(){
 
 });
 
-// denote all absent features with gray font and strikethrough
-function markAbsentFeatures(){
-  $("span:contains('No')").addClass("feature-absent");
-}
-
 // variable and function for adding Yes or No to each feature depending on presence
 let exists = null;
 
@@ -125,6 +120,11 @@ function isPresent(condition){
     exists = "No";
   }
 };
+
+// denote all absent features with gray font and strikethrough
+function markAbsentFeatures(){
+  $("span:contains('No')").addClass("feature-absent");
+}
 
 // add Font Awesome icons to each top level <li>
 function addIcons(){
