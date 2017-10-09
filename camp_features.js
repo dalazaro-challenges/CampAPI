@@ -108,17 +108,8 @@ $(document).ready(function(){
 
   // denote all absent features with gray font and strikethrough
   $("span:contains('No')").addClass("absent-feature");
-
-  // each feature is a clickable bubble that opens up nested subfeatures
-  $(".feature-container").find(".feature").each(function(){
-    $(this).click(function(){
-      $(this).find(".subfeature, .sub-subfeature").each(function(){
-        $(this).toggle("medium");
-      })
-    })
-  })
-
-
+  addIcons();
+  featureClick();
 });
 
 // variable and function for adding Yes or No to each feature depending on presence
@@ -130,4 +121,23 @@ function isPresent(el){
   } else {
     exists = "No";
   }
+};
+
+function addIcons(){
+  $(".101").prepend('<div class="icon"><i class="fa fa-male" aria-hidden="true"></i><i class="fa fa-female" aria-hidden="true"></i></div>');
+  $(".102").prepend('<div class="icon"><i class="fa fa-paw" aria-hidden="true"></i></div>');
+  $(".103").prepend('<div class="icon"><i class="fa fa-shower" aria-hidden="true"></i></div>');
+  $(".104").prepend('<div class="icon"><i class="fa fa-trash" aria-hidden="true"></i></div>');
+};
+
+
+// each feature is a clickable bubble that opens up nested subfeatures
+function featureClick(){
+  $(".feature-container").find(".feature").each(function(){
+    $(this).click(function(){
+      $(this).find(".subfeature, .sub-subfeature").each(function(){
+        $(this).toggle("medium");
+      })
+    })
+  })
 };
