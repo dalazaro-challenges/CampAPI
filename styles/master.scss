@@ -1,11 +1,23 @@
+$custom-gray: #D3D3D3;
+
+@mixin center-align($align, $flex) {
+  align-items: $align;
+  display: $flex;
+  justify-content: $align;
+}
+
+@mixin bubble-border($size, $corner, $va) {
+  border: $size;
+  border-radius: $corner;
+  vertical-align: $va;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
 
 h1, .feature-container, .icon {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  @include center-align(center, flex);
 }
 
 ul {
@@ -22,13 +34,11 @@ ul {
 }
 
 .feature {
-  width: 200px;
   display: inline-block;
+  width: 200px;
   margin: 20px auto;
-  border: 2px solid gray;
-  border-radius: 5px;
   padding: 20px;
-  vertical-align: text-top;
+  @include bubble-border(2px solid $custom-gray, 5px, text-top);
 }
 
 .subfeature, .sub-subfeature {
@@ -42,7 +52,7 @@ ul {
 
 .absent-feature {
   text-decoration: line-through;
-  color: #D3D3D3;
+  color: $custom-gray;
 }
 
 .fa {
