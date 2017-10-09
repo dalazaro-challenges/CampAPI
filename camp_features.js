@@ -66,6 +66,7 @@ $(document).ready(function(){
     let presence = feature.presence;
     isPresent(presence);
 
+
     $('.feature-list').append(`
       <li class="feature ${id}" id="">
         <span id="${id}">${title}: ${exists}</span>
@@ -107,6 +108,16 @@ $(document).ready(function(){
 
   // denote all absent features with gray font and strikethrough
   $("span:contains('No')").addClass("absent-feature");
+
+  // each feature is a clickable bubble that opens up nested subfeatures
+  $(".feature-container").find(".feature").each(function(){
+    $(this).click(function(){
+      $(this).find(".subfeature, .sub-subfeature").each(function(){
+        $(this).toggle("medium");
+      })
+    })
+  })
+
 
 });
 

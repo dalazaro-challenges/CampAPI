@@ -2,8 +2,43 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-li {
+h1 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.feature-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
   list-style: none;
+  padding: 0;
+}
+
+.feature-list {
+  margin: 0;
+}
+
+.feature {
+  display: inline-block;
+  margin: 20px auto;
+  border: 2px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  vertical-align: text-top;
+}
+
+.subfeature, .sub-subfeature {
+  display: none;
+  margin-top: 10px;
+}
+
+.feature, .subfeature, .sub-subfeature {
+  cursor: pointer;
 }
 
 .absent-feature {
